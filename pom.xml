@@ -7,7 +7,7 @@
     <groupId>com.beluga.core</groupId>
     <artifactId>beluga-core</artifactId>
     <packaging>pom</packaging>
-    <version>v1.0.0.RELEASE</version>
+    <version>1.0.1.RELEASE</version>
 
     <modules>
         <module>beluga-notice</module>
@@ -104,7 +104,7 @@
                 <version>2.8.2</version>
                 <configuration>
                     <altDeploymentRepository>
-                        repo.stage::default::file://${project.build.directory}/repo-stage
+                        internal.repo::default::file://${project.build.directory}/mvn-repo
                     </altDeploymentRepository>
                 </configuration>
             </plugin>
@@ -118,14 +118,13 @@
                     <!--<server>github</server>-->
                     <repositoryName>beluga-core</repositoryName>
                     <repositoryOwner>guocjsh</repositoryOwner>
-                    <branch>refs/heads/dependency</branch>
                     <message>Artifacts for ${project.name}/${project.artifactId}/${project.version}</message>
                     <noJekyll>true</noJekyll>
                     <!--分支-->
                     <branch>refs/heads/main</branch>
                     <merge>true</merge>
                     <!-- Deployment values -->
-                    <outputDirectory>${project.build.directory}/repo-stage</outputDirectory>
+                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
                     <includes>
                         <include>**/*</include>
                     </includes>
